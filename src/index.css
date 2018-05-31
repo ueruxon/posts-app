@@ -4,10 +4,14 @@ body {
   font-family: sans-serif;
 }
 
+.container {
+  margin-top: 50px;
+}
+
 .cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   margin: 0;
   padding: 0;
 }
@@ -19,4 +23,25 @@ body {
 
 .card-comment {
   width: 100%;
+}
+
+/* ----------------- Стили юзеров ------------ */
+
+.separator {
+  display: flex;
+  justify-content: center;
+  padding-left: 55px;
+  padding-right: 55px;
+  margin-bottom: 20px;
+}
+
+.separator-right {
+  width: 33.3%;
+  padding: 10px;
+  background-color: rgba(0,0,0,.03);
+}
+
+.separator-left {
+  width: 66.5%;
+  margin-left: 15px;
 }

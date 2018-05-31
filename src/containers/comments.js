@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { connect } from "react-redux";
 
 import { fetchComments } from "../actions/index";
@@ -13,9 +13,9 @@ class Comments extends React.Component {
 
     render() {
         return (
-            <Fragment>
+            <div className="container">
                 <CommentsList comments={this.props.comments} />
-            </Fragment>
+            </div>
         )
     }
 }

@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
-import { FETCH_COMMENTS, FETCH_POSTS, FETCH_USERS } from "../actions/actionTypes";
+import { FETCH_COMMENTS, FETCH_POSTS, FETCH_USERS, FETCH_USER_POSTS, CURRENT_USER } from "../actions/actionTypes";
 
 const initialState = {
     postsList: [],
     commentsList: [],
-    users: []
+    users: [],
+    userPosts: null,
+    currentUser: null,
 }
 
 const postsReducer = (state = initialState, action) => {
@@ -23,7 +25,17 @@ const postsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 users: action.payload
-            }    
+            } 
+        case FETCH_USER_POSTS: 
+            return {
+                ...state,
+                userPosts: action.payload
+            } 
+        case CURRENT_USER: 
+            return {
+                ...state,
+                currentUser: state.users.find(user => +user.id === +action.payload)
+            }        
         default:
             return state;
     }

@@ -1,22 +1,27 @@
 import React from "react";
+import _ from "lodash";
 
-const List = ({ posts }) => {
-    const items = posts.map(item => (
-            <li className="card card-cont" key={item.id}>
+const List = ({ posts, users }) => {
+    
+
+    const items = posts.map(post => {
+        const author = Array.isArray(users) ? users.find(user => user.id === post.userId) : users.name;
+        
+        return (
+            <li className="card card-cont bg-light" key={post.id}>
+                <div className="card-header">Author: {author.name || author}</div>
                 <div className="card-body">
-                    <h5 className="card-title">{item.title}</h5>
-                    <h6 className="card-subtitle mb-2 text-muted">Author: {item.userId}</h6>
-                    <p className="card-text">{item.body}</p>
+                    <h5 className="card-title">{post.title}</h5>
+                    <p className="card-text">{post.body}</p>
                 </div>
             </li>
-    ))
+        )
+    });
 
     return (
-        <div className="container">
-            <ul className="cards">
-                {items}
-            </ul>
-        </div>
+        <ul className="cards">
+            {items}
+        </ul>
     )
 }
 

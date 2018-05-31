@@ -1,9 +1,9 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { connect } from "react-redux";
 
 import { fetchUsers } from "../actions/index";
 
-import CommentsList from "../components/commentsList";
+import UsersList from "../components/users/usersList";
 
 class Comments extends React.Component {
 
@@ -13,9 +13,9 @@ class Comments extends React.Component {
 
     render() {
         return (
-            <Fragment>
-                <div>Blala</div>
-            </Fragment>
+            <div className="container">
+                <UsersList users={this.props.users} />
+            </div>            
         )
     }
 }

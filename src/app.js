@@ -4,6 +4,7 @@ import { Route, BrowserRouter, Switch } from "react-router-dom";
 import Posts from "./containers/posts";
 import Comments from "./containers/comments";
 import Users from "./containers/users";
+import User from "./containers/currentUser";
 
 import NavBar from "./components/navbar";
 
@@ -14,9 +15,9 @@ const App = () => {
                 <NavBar />
                 <Switch>
                     <Route exact path="/" component={Posts} />
-                    <Route path="/posts" component={Posts} />
                     <Route path="/comments" component={Comments} />
                     <Route path="/users" component={Users} />
+                    <Route path="/user/:id" component={User} />
                 </Switch>
             </div>
         </BrowserRouter >
