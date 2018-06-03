@@ -8,6 +8,7 @@ import UsersList from "../components/users/usersList";
 class Comments extends React.Component {
 
     componentDidMount() {
+        window.scrollTo(0, 0);
         this.props.fetchUsers();
     }
 
